@@ -13,9 +13,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    var navigationController: UINavigationController?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let memoryCapacity = 500 * 1024 * 1024
+        let diskCapacity = 500 * 1024 * 1024
+        let cache = URLCache(memoryCapacity: memoryCapacity, diskCapacity: diskCapacity, diskPath: "caches")
+        URLCache.shared = cache
+        
+        // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        //
+        // Create a new instance of ViewController
+        let mainViewController = ViewController()
+        //
+        // Set the initial View Controller to our instance of ViewController
+        // window?.rootViewController = mainViewController
+        navigationController = UINavigationController(rootViewController: mainViewController)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        //
+        // Present the window
+        window?.makeKeyAndVisible()
         return true
     }
 
