@@ -16,7 +16,6 @@ Swift 4.2
 cocoapod  1.5.3
 
 # run
-
 xcrun xcodebuild  -scheme DemoProject  -workspace DemoProject.xcworkspace  -configuration Debug  -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1'  -derivedDataPath  build
 
 
